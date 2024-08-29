@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopsmart_admin/models/dashboard_btn_model.dart';
 import 'package:shopsmart_admin/providers/theme_provider.dart';
 import 'package:shopsmart_admin/services/assets_manager.dart';
 import 'package:shopsmart_admin/widgets/app_name_text';
+import 'package:shopsmart_admin/widgets/dashboard_btn.dart';
 import 'package:shopsmart_admin/widgets/title_text.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -41,7 +43,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: GridView.count(
         crossAxisCount: 2,
         childAspectRatio: 1,
-        children: List.generate(3, (index) => DashboardScreen()),
+        children: List.generate(
+            3,
+            (index) => Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: DashboardButtonsWidget(
+                    imagePath:
+                        DashboardButtonsModel.dashboardBtnList(context)[index]
+                            .imagePath,
+                    onPressed: () {
+                      DashboardButtonsModel.dashboardBtnList(context)[index]
+                          .onPressed();
+                    },
+                    title:
+                        DashboardButtonsModel.dashboardBtnList(context)[index]
+                            .title,
+                  ),
+                )),
       ),
     );
   }

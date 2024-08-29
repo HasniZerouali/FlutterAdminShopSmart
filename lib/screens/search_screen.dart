@@ -49,10 +49,6 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Scaffold(
           appBar: AppBar(
             title: TitlesTextWidget(label: passedCategory ?? "Search"),
-            leading: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(AssetsManager.shoppingCart),
-            ),
           ),
           body: productList.isEmpty
               ? const Center(

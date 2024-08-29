@@ -4,6 +4,8 @@ import 'package:shopsmart_admin/consts/theme.data.dart';
 import 'package:shopsmart_admin/providers/product_provider.dart';
 import 'package:shopsmart_admin/providers/theme_provider.dart';
 import 'package:shopsmart_admin/screens/dashboard_screen.dart';
+import 'package:shopsmart_admin/screens/edit_upload_product_form.dart';
+import 'package:shopsmart_admin/screens/inner_screens/orders_screen.dart';
 import 'package:shopsmart_admin/screens/search_screen.dart';
 
 void main() {
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
           create: (_) => ThemeProvider(),
         ),
         ChangeNotifierProvider(
-          create: (_) => ProductProvider(),
+          create: (_) => ProductProvider(),  
         ),
       ],
       //Consumer min tkon widget wahda tatsama3 ela tarayoro=)
@@ -40,7 +42,13 @@ class MyApp extends StatelessWidget {
             title: 'Shop Smart ADMIN AR',
             theme: Styles.themeData(
                 isDarkTheme: themeProvider.getIsDarkTheme, context: context),
-            home: SearchScreen(),
+            home: DashboardScreen(),
+            routes: {
+              OrdersScreenFree.routeName: (context) => const OrdersScreenFree(),
+              SearchScreen.routeName: (context) => const SearchScreen(),
+              EditOrUploadProductScreen.routeName: (context) =>
+                  const EditOrUploadProductScreen(),
+            },
           );
         },
       ),

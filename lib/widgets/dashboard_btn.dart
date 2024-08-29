@@ -1,28 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:shopsmart_admin/services/assets_manager.dart';
+
 import 'package:shopsmart_admin/widgets/subtitle_text.dart';
 
 class DashboardButtonsWidget extends StatelessWidget {
-  const DashboardButtonsWidget({super.key});
-
+  const DashboardButtonsWidget({
+    super.key,
+    required this.title,
+    required this.imagePath,
+    required this.onPressed,
+  });
+  final String title, imagePath;
+  final Function onPressed;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Image.asset(
-            AssetsManager.book,
-            height: 65,
-            width: 65,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          const SubtitleTextWidget(
-            label: "Subtitle",
-            fontSize: 18,
-          )
-        ],
+    return GestureDetector(
+      onTap: () {
+        onPressed();
+      },
+      child: Card(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              imagePath,
+              height: 65,
+              width: 65,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            SubtitleTextWidget(
+              label: title,
+              fontSize: 18,
+            )
+          ],
+        ),
       ),
     );
   }
