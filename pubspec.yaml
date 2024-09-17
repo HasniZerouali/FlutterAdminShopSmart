@@ -45,6 +45,14 @@ dependencies:
   ionicons: ^0.2.2  
   image_picker: ^1.1.2
   uuid: ^4.4.2
+  dotted_border: ^2.1.0
+  #dotted dartha fal imagepicker
+  #initialisation lal firebase "firebase_core"
+  firebase_core: ^3.4.0
+  cloud_firestore: ^5.3.0
+  firebase_storage: ^12.2.0
+  fluttertoast: ^8.2.8
+
 
 
 dev_dependencies:

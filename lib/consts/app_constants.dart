@@ -6,11 +6,14 @@ class AppConstants {
 
   static List<String> categoriesList = [
     'Phones',
+    'Laptops',
+    'Electronics',
     'Clothes',
-    'Beauty',
+    'Books',
     'Shoes',
-    'Funiture',
+    'Cosmetics',
     'Watches',
+    'Accessories',
   ];
   static List<DropdownMenuItem<String>>? get categoriesDropDownList {
     //generat kima drtha m3a List.generate fal dashborardScrenn
@@ -18,6 +21,8 @@ class AppConstants {
         List<DropdownMenuItem<String>>.generate(
       categoriesList.length,
       (index) => DropdownMenuItem(
+        value: categoriesList[index],
+        //balue bach ta3raf user fach 9ima drak fiha
         child: Text(
           categoriesList[index],
         ),
